@@ -10,6 +10,11 @@ export default [
       "prefer-const": "warn",
       "no-constant-binary-expression": "error",
     },
+    settings: {
+      react: {
+        version: "detect", // Adicione esta linha para detectar automaticamente a versão do React
+      },
+    },
   },
   {
     languageOptions: {
