@@ -12,5 +12,5 @@ jobs:
         with:
           node-version: "lts/hydrogen"
         # Use npm ci to install dependencies from package-lock.json because it's faster than npm install and never updates package.json
-        run: npm ci
-        run: npm test
+      - run: npm ci
+      - run: npm test
