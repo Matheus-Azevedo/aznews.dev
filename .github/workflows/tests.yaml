@@ -7,14 +7,10 @@ jobs:
     name: Jest Ubuntu
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
       - uses: actions/checkout@v4
-      - name: Install Node.js
       - uses: actions/setup-node@v1
         with:
           node-version: "lts/hydrogen"
-      - name: Install dependencies
         # Use npm ci to install dependencies from package-lock.json because it's faster than npm install and never updates package.json
         run: npm ci
-      - name: Run tests
         run: npm test
