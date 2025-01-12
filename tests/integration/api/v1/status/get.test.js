@@ -22,7 +22,7 @@ describe("GET /api/v1/status", () => {
   test("Should return a JSON with database information - Version", async () => {
     const response = await fetch(url);
     const responseBody = await response.json();
-    expect(responseBody.dependencies.database.version).toEqual("16.0");
+    expect(responseBody.dependencies.database.version).toEqual("20.0");
   });
 
   test("Should return a JSON with database information - Max Connections", async () => {
