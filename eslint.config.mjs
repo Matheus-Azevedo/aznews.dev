@@ -5,6 +5,7 @@ import pluginReact from "eslint-plugin-react";
 /** @type {import('eslint').Linter.Config[]} */
 export default [
   {
+    ignores: ["**/.next/"],
     files: ["**/*.{js,mjs,cjs,jsx}"],
     rules: {
       "prefer-const": "warn",

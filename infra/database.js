@@ -28,11 +28,6 @@ async function getNewClient() {
   return client;
 }
 
-export default {
-  query,
-  getNewClient,
-};
-
 function getSSLConfig() {
   if (process.env.NODE_ENV !== "production") {
     return false;
@@ -44,3 +39,10 @@ function getSSLConfig() {
   }
   return true;
 }
+
+const database = {
+  query,
+  getNewClient,
+};
+
+export default database;
