@@ -18,7 +18,11 @@ export default [
   },
   {
     languageOptions: {
-      globals: globals.browser,
+      globals: {
+        ...globals.node,
+        ...globals.browser,
+        ...globals.es2022,
+      },
     },
   },
   pluginJs.configs.recommended,
