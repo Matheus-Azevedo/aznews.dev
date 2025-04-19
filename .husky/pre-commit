@@ -1,0 +1,22 @@
+# Verificar se há chaves ou segredos no código
+echo "Verificando se há chaves ou segredos no código..."
+
+# Padrões comuns de chaves ou segredos (exemplo: AWS, JWT, etc.)
+PATTERNS="(AWS_SECRET|JWT_SECRET|API_KEY|PRIVATE_KEY|SECRET_KEY)"
+
+# Verificar os arquivos que serão commitados
+FILES=$(git diff --cached --name-only)
+
+for FILE in $FILES; do
+  # Ignorar o próprio arquivo de pre-commit
+  if [ "$FILE" = ".husky/pre-commit" ]; then
+    continue
+  fi
+
+  if grep -E "$PATTERNS" "$FILE" > /dev/null; then
+    echo "❌ Erro: O arquivo '$FILE' contém uma chave ou segredo. Remova-o antes de fazer o commit."
+    exit 1
+  fi
+done
+
+echo "✅ Nenhuma chave ou segredo encontrado. Continuando com o commit..."
