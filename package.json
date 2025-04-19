@@ -32,6 +32,8 @@
     "statuses": "^2.0.1"
   },
   "devDependencies": {
+    "@commitlint/cli": "^19.3.0",
+    "@commitlint/config-conventional": "^19.2.2",
     "@eslint/js": "^9.18.0",
     "concurrently": "^9.1.2",
     "eslint": "^9.18.0",
