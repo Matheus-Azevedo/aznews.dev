@@ -4,8 +4,8 @@
   "description": "Este projeto é a implementação do https://www.tabnews.com.br/ para https://curso.dev/ do Felipe Deschamps",
   "main": "index.js",
   "scripts": {
-    "dev": "npm run services:up && npm run services:wait:database && npm run migrations:up && next dev",
-    "postdev": "npm run services:stop",
+    "dev": "node scripts/dev.mjs",
+    "next:dev": "next dev",
     "test": "npm run services:up && concurrently --names next,jest --hide next --kill-others --success command-jest \"next dev\" \"jest --runInBand --verbose\"",
     "posttest": "npm run services:stop",
     "test:watch": "jest --watchAll --runInBand",
