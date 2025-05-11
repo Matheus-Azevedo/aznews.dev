@@ -12,11 +12,6 @@ export default async function migrations(request, response) {
 
   let dbClient;
 
-  console.log("Process-working-directory:", process.cwd());
-  console.log(
-    "Resolved-migrations-directory:",
-    join(process.cwd(), "infra/migrations"),
-  );
   try {
     dbClient = await database.getNewClient();
     const defaultMigrationOptions = {
