@@ -2,7 +2,7 @@
   "name": "aznews.com.br",
   "version": "1.0.0",
   "engines": {
-    "node": "20.18.0"
+    "node": "20.x"
   },
   "description": "Este projeto é a implementação do https://www.tabnews.com.br/ para https://curso.dev/ do Felipe Deschamps",
   "main": "index.js",
