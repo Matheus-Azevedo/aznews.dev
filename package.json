@@ -4,6 +4,8 @@
   "description": "Este projeto é a implementação do https://www.tabnews.com.br/ para https://curso.dev/ do Felipe Deschamps",
   "main": "index.js",
   "scripts": {
+    "build": "next build",
+    "start": "next start",
     "dev": "node scripts/dev.mjs",
     "next:dev": "next dev",
     "test": "npm run services:up && concurrently --names next,jest --hide next --kill-others --success command-jest \"next dev\" \"jest --runInBand --verbose\"",
