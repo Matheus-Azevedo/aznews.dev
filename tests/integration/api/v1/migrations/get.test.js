@@ -1,26 +1,35 @@
-import database from "infra/database";
 import orchestrator from "tests/orchestrator";
-import { beforeAll, describe, test, expect } from "@jest/globals";
-
-async function cleanDatabase() {
-  await database.query("DROP SCHEMA public CASCADE; CREATE SCHEMA public;");
-}
+import { beforeAll, describe, test, expect, beforeEach } from "@jest/globals";
 
 beforeAll(async () => {
   await orchestrator.waitForAllServices();
-  await cleanDatabase();
+  await orchestrator.cleanDatabase();
 });
 
 const url = "http://localhost:3000/api/v1/migrations";
 
 describe("GET /api/v1/migrations", () => {
-  test("should return 200", async () => {
-    const response = await fetch(url);
-    expect(response.status).toBe(200);
+  describe("Anonymous user", () => {
+    describe("Retrieving information about the migrations", () => {
+      let response;
+      let responseBody;
 
-    const responseBody = await response.json();
+      beforeEach(async () => {
+        response = await fetch(url);
+        responseBody = await response.json();
+      });
 
-    expect(Array.isArray(responseBody)).toBe(true);
-    expect(responseBody.length).toBeGreaterThan(0);
+      test("Should return a specific status code", () => {
+        expect(response.status).toBe(200);
+      });
+
+      test("Should return a specific structure", () => {
+        expect(Array.isArray(responseBody)).toBe(true);
+      });
+
+      test("Should return a non-empty structure", () => {
+        expect(responseBody.length).toBeGreaterThan(0);
+      });
+    });
   });
 });
