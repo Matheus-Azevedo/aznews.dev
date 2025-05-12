@@ -1,5 +1,6 @@
 import retry from "async-retry";
 import status from "statuses";
+import database from "infra/database";
 
 async function waitForAllServices() {
   await waitForWebServer();
@@ -26,6 +27,11 @@ async function waitForAllServices() {
   }
 }
 
+async function cleanDatabase() {
+  await database.query("DROP SCHEMA public CASCADE; CREATE SCHEMA public;");
+}
+
 export default {
   waitForAllServices,
+  cleanDatabase,
 };

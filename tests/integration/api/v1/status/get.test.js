@@ -5,6 +5,7 @@ const url = "http://localhost:3000/api/v1/status";
 
 beforeAll(async () => {
   await orchestrator.waitForAllServices();
+  await orchestrator.cleanDatabase();
 });
 
 describe("GET /api/v1/status", () => {
