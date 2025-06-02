@@ -1,6 +1,6 @@
 import React from "react";
-import useApiStatus from "../hooks/useAPIStatus";
-import ApiStatusDisplay from "../components/ApiStatusDisplay";
+import useApiStatus from "../../hooks/useAPIStatus";
+import ApiStatusDisplay from "../../components/ApiStatusDisplay";
 
 export default function StatusPage() {
   const { data, error, isLoading } = useApiStatus();
